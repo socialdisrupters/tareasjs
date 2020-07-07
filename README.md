@@ -15,3 +15,5 @@ Hacer todos los cambios en una rama de trabajo con tu nombre (ejemplo: `git chec
 3. Crear un commit por cada tarea (ejemplo: `git commit -m "Tarea 1"`)
 4. Empujar los cambios a Github (`git push -u origin tu_rama`)
 5. Abrir un PR (Pull Request) con todas las tareas
+
+**Importante**: No hacer commits directamente en `master`
