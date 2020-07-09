@@ -31,8 +31,3 @@ servidor.get('/dos', function(req, res){
 servidor.listen(3000, function(){
     console.log('estoy escuchando en el puerto 3000');
 });
-
-for(let index = 0;index<10;index++){
-    console.log("esperando: "+index)
-
-}
