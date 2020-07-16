@@ -8,8 +8,8 @@
 <body>
 
     <script>
-        var meses = new Array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
-        var diasSemana = new Array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado");
+        var meses = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
+        var diasSemana = ["Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"];
         var f=new Date();
         document.write("La fecha es: " + diasSemana[f.getDay()]+ " " + f.getDate() + " de " + meses[f.getMonth()] + " de " + f.getFullYear());
     </script>
