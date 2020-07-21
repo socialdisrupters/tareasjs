@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fecha</title>
+</head>
+<body>
+    <script>
+        (function(){
+
+            let fecha = new Date (); 
+
+            const semana = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves","Viernes", "Sábado"]; //arreglo para ajustar el dia de la semana
+            const meses = [ "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]; //arreglo para ajustar el mes de año
+
+            let dia = fecha.getDay();  
+            let dat = fecha.getDate();
+            let mes = fecha.getMonth();
+            let año = fecha.getFullYear();
+
+           dia = semana[dia]; 
+           mes = meses[mes]; 
+
+
+            document.write(dia + " " + dat + " de " + mes + " del " + año + "\n");
+           
+
+
+        }())
+    </script>
+    
+</body>
+</html>
