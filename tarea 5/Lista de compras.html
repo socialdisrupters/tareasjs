@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de compras:</title>
+</head>
+<script>
+
+function añadir(event){
+
+        event.preventDefault(); 
+
+        const span = document.createElement("span");
+
+        const p = document.createElement("p");
+        
+        const producto=document.getElementById("producto").value;
+
+        const checkbox = document.createElement("input"); 
+        checkbox.type ="checkbox"; 
+        checkbox.className = "CBX";
+
+        const Nproducto = document.createTextNode(producto + " [x] ");
+       
+
+        span.onclick = function(event) { event.target.parentNode.remove() }
+        
+        
+        span.appendChild(Nproducto);
+
+        p.appendChild(checkbox);
+        p.appendChild(span);
+
+        const div = document.getElementById("listaDP");
+        div.appendChild(p);
+      
+           
+}
+
+
+
+</script>
+
+<body>
+    <h1>Compras: </h1>
+    <form onsubmit="añadir(event)"> Producto: <input type="text" id="producto">
+    <p></p>
+    <button type="submit" id="ag"> Agregar producto a la lista</button>    
+    </form>
+    <h3>Cosas compradas: </h3>
+    <div id="CB"></div>
+    
+
+    <h2>Productos:</h2>
+    <div id="listaDP"></div>
+</body>
+</html>
