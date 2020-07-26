@@ -3,17 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tarea 5</title>
 </head>
 <body>
+    <script>
+        //cuantos
+        function cuantos(){
+            event.preventDefault()
+            const x = document.getElementsByTagName("li");
+            document.getElementById("Cuantos").innerHTML = x.length;
+        }
+    </script>
+
     <h1>Lista de compras</h1>
 		<form>
-				Tengo que comprar: <input type="text" id="texto">
-				<input type="button" id="btn-agregar" value="Agregar">
+			Tengo que comprar: <input type="text" id="texto">
+            <input type="button" id="btn-agregar" value="Agregar">
+            <button onclick="cuantos()">Cantidad</button>
 		</form>
 
+        <!--Cuantos cantidad-->
+        Cantidad: <p id="Cuantos">0</p>
+
 	<h2>Elementos agregados</h2>
-			<ul id="lista"></ul>
+		<ul id="lista"></ul>
 
 	<script src="js/main.js"></script>
 </body>
