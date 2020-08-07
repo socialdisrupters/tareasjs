@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tarea Lista de Compras</title>
+  <script>
+    function agregarCompra(event) {
+      event.preventDefault(); // Evitar que se envíe el form
+​
+      const nombre = document.getElementById('nombre').value;
+​
+      if (nombre !== '') { // Si el nombre no es vacío
+        agregarElemento(nombre);
+      }
+​
+      // Limpiar campo una vez que se agregó el elemento
+      document.getElementById('nombre').value = '';
+    }
+​
+    function agregarElemento(nombre) {
+      const li = document.createElement('li');
+​
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      checkbox.onclick = actualizarCompras;
+​
+      const texto = document.createTextNode(` ${nombre} `);
+​
+      const span = document.createElement('span');
+      span.innerText = '[x]';
+      span.onclick = (event) => {
+        quitarElemento(event);
+        actualizarCompras(); // En caso de que el elemento que se eliminó esté marcado
+      }
+​
+      // Agregar hijos al nuevo elemento
+      li.appendChild(checkbox);
+      li.appendChild(texto);
+      li.appendChild(span);
+​
+      // Agregar nuevo elemento a la lista
+      const lista = document.getElementById('lista');
+      lista.appendChild(li);
+    }
+​
+    function actualizarCompras() {
+      const compras = document.getElementById('compras');
+      // Selecciona todos los checkbox marcados dentro de la lista
+      const checkboxes = document.querySelectorAll('#lista li input:checked');
+      const comprados = checkboxes.length;
+      
+      // Si es plural, agrega una s al final de los sustantivos
+      const plural = comprados === 1 ? '' : 's';
+      document.getElementById('compras').innerText =
+        `${comprados} cosa${plural} comprada${plural} `;
+    }
+​
+    function quitarElemento(event) {
+      event.target.parentNode.remove();
+    }
+​
+  </script>
+  <style>
+    ul {
+      list-style: none;
+    }
+    span, input[type=checkbox] {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Lista de Compras</h1>
+​
+  <form onsubmit="agregarCompra(event)">
+    Tengo que comprar: <input name="nombre" id="nombre">&nbsp;
+    <button type="submit">Agregar</button>
+  </form>
+​
+  <h2>Elementos agregados</h2>
+  <p id="compras">0 cosas compradas</p>
+  
+  <ul id="lista">
+  </ul>
+</body>
+</html>
