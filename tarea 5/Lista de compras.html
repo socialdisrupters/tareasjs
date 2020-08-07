@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de compras:</title>
+<script>
+
+    function añadir(event) {
+
+        event.preventDefault();
+
+        const span = document.createElement("span");
+
+        const p = document.createElement("p");
+
+        const producto = document.getElementById("producto").value;
+
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.className = "CBX";
+        checkbox.onclick=contarCB;
+
+        const Nproducto = document.createTextNode(producto + " [x] ");
+
+
+        span.onclick = function (event) { event.target.parentNode.remove() }
+
+
+        span.appendChild(Nproducto);
+
+        p.appendChild(checkbox);
+        p.appendChild(span);
+
+        const div = document.getElementById("listaDP");
+        div.appendChild(p);
+
+
+        document.getElementById('producto').value = '';
+     
+     
+      
+        }
+
+        function contarCB() {
+      const compras = document.getElementById("CB");
+      const checkboxes = document.querySelectorAll("#listaDP p input:checked");
+      const comprados = checkboxes.length;
+    
+      const plural = comprados === 1 ? '' : 's';
+      document.getElementById("CB").innerText =
+        `${comprados} cosa${plural} comprada${plural} `;
+    }
+
+       
+
+</script>
+<style>
+    ul {
+      list-style: none;
+    }
+    span, input[type=checkbox] {
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+    <h1>Compras: </h1>
+    <form onsubmit="añadir(event)"> Producto: <input type="text" id="producto">
+        <p></p>
+        <button type="submit" id="ag"> Agregar producto a la lista</button>
+    </form>
+    <p id="CB">0 Cosas compradas:</p>
+
+
+    <h2>Productos:</h2>
+    <div id="listaDP"></div>
+</body>
+
+</html>
