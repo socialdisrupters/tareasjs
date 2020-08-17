@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fecha</title>
+</head>
+<body>
+
+    <script>
+        var meses = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
+        var diasSemana = ["Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"];
+        var f=new Date();
+        document.write("La fecha es: " + diasSemana[f.getDay()]+ " " + f.getDate() + " de " + meses[f.getMonth()] + " de " + f.getFullYear());
+    </script>
+
+</body>
+</html>
